@@ -54,7 +54,7 @@ const App = () => {
     const openai = async () => {
         setFetchingRecipe(true);
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey: "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",
         });
         const openai = new OpenAIApi(configuration);
 
