@@ -54,7 +54,7 @@ const App = () => {
     const openai = async () => {
         setFetchingRecipe(true);
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey: process.env.OPENAI_API_KEY,
         });
         const openai = new OpenAIApi(configuration);
 
@@ -65,7 +65,7 @@ const App = () => {
             messages: [
                 {
                     role: "system",
-                    content: `you are a chef who can suggest delicious, real-life, popular recipes using ONLY the available ingredients I give you, but you do not have to use all of the ingredients if not needed. Name the dish. Then list out the ingredients in a bullet point list, then list out the detailed step-by-step instructions in a new bullet point list. Do not add any filler text. Give me the recipes in this exact format: {
+                    content: `you are a chef who can suggest delicious, real-life, popular recipes using ONLY the available ingredients I give you, but you do not have to use all of the ingredients if not needed. Name the dish. Then list out the ingredients in a bullet point list, then list out the detailed step-by-step instructions in a new bullet point list. Give me the recipes in this exact format: {
                         Pork Belly Fried Rice Recipe
                         
                         Ingredients:
@@ -74,7 +74,7 @@ const App = () => {
                         
                         Instructions:
                         1. Heat a large skillet over medium-high heat. Add the chopped pork belly and cook until crispy, about 5 minutes.
-                        }`,
+                        }. Do not add any other text. `,
                 },
                 {
                     role: "user",

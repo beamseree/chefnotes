@@ -49,8 +49,9 @@ const Recipe = (props) => {
                 <div className="fetching-loader">
                     <div className="fetching-content">
                         <Lottie
-                            className="animation"
-                            options={defaultOptions}
+                            animationData={ani}
+                            autoplay={true}
+                            loop={true}
                             height={150}
                             width={150}
                         />
