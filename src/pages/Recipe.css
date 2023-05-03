@@ -1,0 +1,104 @@
+.recipe path {
+    fill: #fff;
+    stroke: #121212;
+}
+
+.fetching-loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fetching-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fetching-label{
+    margin-top: 36px;
+    margin-left: -5px;
+    font-size: 2.25rem;
+}
+
+.bold {
+    font-family: "NeueMontreal-B";
+    margin-bottom: 15px;
+}
+
+.name {
+    font-family: "NeueMontreal-B";
+    font-size: 3.7rem;
+    margin-bottom: 38px;
+}
+
+.col {
+    padding-top: 45px;
+    border-top: 1px solid #d1d1d1;
+    display: flex;
+    column-gap: 5%;
+    justify-content: space-between;
+} 
+
+.ingredients {
+    width: 25%;
+}
+
+.instructions {
+    width: 70%;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.recipe-container {
+    width: 100%;
+    max-width: 920px;
+}
+
+.text {
+    line-height: 135%;
+}
+
+@media only screen and (max-width: 720px) {
+    .col {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    .ingredients {
+        width: 100%;
+    }
+    
+    .instructions {
+        width: 100%;
+    }
+
+    .fetching-content {
+        flex-direction: column;
+        
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .name {
+        font-size: 3rem;
+    }
+
+    .fetching-label {
+        margin-left: 0;
+        text-align: center;
+        margin-top: -8px;
+    }
+}

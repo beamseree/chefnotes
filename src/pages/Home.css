@@ -1,0 +1,95 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+h2 {
+    font-family: "NeueMontreal-R";
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "NeueMontreal-B";
+    font-size: 2.4rem;
+    max-width: 700px;
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.common-ingredients {
+    width: 100%;
+    max-width: 920px;
+    margin-bottom: 50px;
+}
+
+.label {
+    font-size: 1.25rem;
+}
+
+.label.padding {
+    margin-bottom: 18px;
+}
+
+.ingredient {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    font-size: 1.2rem;
+}
+
+.checkbox-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.available-ingredients {
+    width: 100%;
+    max-width: 920px;
+}
+
+.MuiOutlinedInput-root {
+    font-family: "NeueMontreal-R" !important;
+}
+
+.generate {
+    margin-top: 50px !important;
+    font-family: "NeueMontreal-R" !important;
+    text-transform: none !important;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .checkbox-container {
+        flex-direction: column;
+    }
+
+    .common-ingredients {
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 0.9rem;
+    }
+}

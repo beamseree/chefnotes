@@ -1,0 +1,36 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+.logo-small {
+    width: 50px;
+    cursor: pointer;
+    display: none;
+}
+
+.MuiButton-root {
+    font-family: "NeueMontreal-R" !important;
+    text-transform: none !important;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+}
+
+.small {
+    display: none;
+}
+  
+@media only screen and (max-width: 500px) {
+    .logo {
+        display: none;
+    }
+
+    .logo-small {
+        display: block;
+    }
+}

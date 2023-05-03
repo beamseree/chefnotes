@@ -1,13 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: NeueMontreal-R;
+  src: url("./font/NeueMontreal-Regular.otf") format("opentype");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: NeueMontreal-L;
+  src: url("./font/NeueMontreal-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: NeueMontreal-M;
+  src: url("./font/NeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: NeueMontreal-B;
+  src: url("./font/NeueMontreal-Bold.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 3vh 3vw;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: NeueMontreal-R;
+}
+
+@media only screen and (max-width: 720px) {
+  body {
+    padding: 3vh 7vw;
+  }
 }
