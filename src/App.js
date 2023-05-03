@@ -52,7 +52,7 @@ const App = () => {
     );
 
     const openai = async () => {
-        console.log(process.env.REACT_APP_OPENAI_API_KEY)
+        console.log("THIS: " + process.env.REACT_APP_OPENAI_API_KEY)
         setFetchingRecipe(true);
         const configuration = new Configuration({
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
