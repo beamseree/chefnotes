@@ -38,11 +38,11 @@ const ingredientsList = [
 const App = () => {
     const [fetchingRecipe, setFetchingRecipe] = useState(false);
 
-    const [userIngredients, setUserIngredients] = useState("");
+    const [userIngredients, setUserIngredients] = useState("")
 
-    const [redirectRecipe, setRedirectRecipe] = useState(false);
+    const [redirectRecipe, setRedirectRecipe] = useState(false)
 
-    const [recipe, setRecipe] = useState(``);
+    const [recipe, setRecipe] = useState(``)
 
     const [checkedIngredients, setCheckedIngredients] = useState(
         ingredientsList.reduce((acc, ingredient) => {
@@ -52,38 +52,51 @@ const App = () => {
     );
 
     const openai = async () => {
+        console.log(process.env.REACT_APP_OPENAI_API_KEY)
         setFetchingRecipe(true);
+        const configuration = new Configuration({
+            apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
 
-        try {
-            const response = await fetch("/api/get_recipe", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+        const commonIngredients = compileCheckbox();
+
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "system",
+                    content: `you are a chef who can suggest delicious, real-life, popular recipes using ONLY the available ingredients I give you, but you do not have to use all of the ingredients if not needed. Name the dish. Then list out the ingredients in a bullet point list, then list out the detailed step-by-step instructions in a new bullet point list. Give me the recipes in this exact format: {
+                        Pork Belly Fried Rice Recipe
+                        
+                        Ingredients:
+                        - 2 cups cooked rice
+                        - 4 oz pork belly, chopped
+                        
+                        Instructions:
+                        1. Heat a large skillet over medium-high heat. Add the chopped pork belly and cook until crispy, about 5 minutes.
+                        }. Do not add any other text. `,
                 },
-                body: JSON.stringify({
-                    userIngredients,
-                    commonIngredients: compileCheckbox(),
-                }),
-            });
-
-            const data = await response.json();
-            setFetchingRecipe(false);
-            setRecipe(data.recipe);
-        } catch (error) {
-            setFetchingRecipe(false);
-            console.error("Error fetching recipe:", error);
-        }
+                {
+                    role: "user",
+                    content:
+                        `I have the following ingredients: ${userIngredients}. I also have the following basic ingredients: ${commonIngredients}. Give me a recipe using only my available ingredients.`,
+                }
+            ],
+        });
+        setFetchingRecipe(false);
+        setRecipe(completion.data.choices[0].message.content);
     };
 
     const compileCheckbox = () => {
-        let ingredientList = "";
+        let ingredientList = ""
         for (const [key, value] of Object.entries(checkedIngredients)) {
             if (value) {
-                ingredientList += key + ", ";
+                ingredientList += key + ", "
             }
-        }
-        return ingredientList.trim();
-    };
+          }
+          return ingredientList.trim()
+    }
 
     return (
         <Router>
