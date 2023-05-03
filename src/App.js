@@ -52,7 +52,6 @@ const App = () => {
     );
 
     const openai = async () => {
-        console.log("THIS: " + process.env.REACT_APP_OPENAI_API_KEY)
         setFetchingRecipe(true);
         const configuration = new Configuration({
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -66,7 +65,7 @@ const App = () => {
             messages: [
                 {
                     role: "system",
-                    content: `you are a chef who can suggest delicious, real-life, popular recipes using ONLY the available ingredients I give you, but you do not have to use all of the ingredients if not needed. Name the dish. Then list out the ingredients in a bullet point list, then list out the detailed step-by-step instructions in a new bullet point list. Give me the recipes in this exact format: {
+                    content: `you are a chef who can suggest delicious, real-life, popular recipes using ONLY the available ingredients I give you, but you do not have to use all of the ingredients if not needed. Name the dish. Then list out the ingredients in a bullet point list, then list out the detailed step-by-step instructions in a new bullet point list. Give me the recipes in this EXACT format: {
                         Pork Belly Fried Rice Recipe
                         
                         Ingredients:
