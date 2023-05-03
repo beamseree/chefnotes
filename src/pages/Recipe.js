@@ -1,4 +1,4 @@
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import ani from "../img/hot-food.json";
 import "./Recipe.css";
 import { useEffect, useState } from "react";
@@ -6,17 +6,14 @@ import { useEffect, useState } from "react";
 const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: ani,
-    rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-    },
+    animationData: ani
 };
 
 const Recipe = (props) => {
     const [ingredients, setIngredients] = useState([]);
     const [instructions, setInstructions] = useState([]);
     const [name, setName] = useState("");
-    
+
     const parseRecipe = (recipe) => {
         const lines = recipe.split(/\r?\n/);
         setName(lines[0].trim());
