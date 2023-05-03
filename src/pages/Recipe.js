@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import ani from "../img/hot-food.json";
 import "./Recipe.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const defaultOptions = {
     loop: true,
@@ -42,6 +43,14 @@ const Recipe = (props) => {
     useEffect(() => {
         parseRecipe(props.recipe);
     }, [props.recipe]);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (props.recipe.length == 0 && !props.fetchingRecipe) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className="recipe">
